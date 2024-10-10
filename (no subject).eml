@@ -1,0 +1,102 @@
+Delivered-To: 20231167@nbsc.edu.ph
+Received: by 2002:ac8:6b8b:0:b0:456:7db3:1366 with SMTP id z11csp1105575qts;
+        Wed, 9 Oct 2024 16:45:30 -0700 (PDT)
+X-Received: by 2002:a05:620a:40c6:b0:7af:d00b:9c79 with SMTP id af79cd13be357-7b11252f117mr254907185a.31.1728517529940;
+        Wed, 09 Oct 2024 16:45:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1728517529; cv=none;
+        d=google.com; s=arc-20160816;
+        b=G443/dpch96X/+lCk0UQJMNdmaom6do3KzAW9zfd53pfg2915AdGKN0iGiK2w74qQ1
+         +xMJDudqU+XUWfQ5WLVcalEWYgmuqi8oiEJrlR+hLYgPxVYnxPxfZ/Yl6W7qu7JWCxaF
+         QCs02fLrNmG2KSB0lUuIZF2DvFHTLpL92ovovsHvaz3fJxwHYVzAwm41IYGP+2jZt+Vl
+         9sC/Xk2teEA5B/R5BpzF1OSESQhv6ULYmGXSwrJgouMC90/u2b2EGEx32iQ45XMzL+J8
+         7hyY9cWk9p0zmFcb3pGxJaYbOo+N6Ycu47H31n8lroE7QkDp4gYXqHTVJzbrVgoaZSfg
+         opjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=b3pkI0POUbM8hvScs3yZ7oM8N39ICGUajOeRsP8I0kU=;
+        fh=W9tuab6HXeGlbfYcsi4Zw6oDas8DlB1oUxoVtMKcGEQ=;
+        b=NweOARGtDtW91vXmqwelpqo8UEiS10Owhv2QnqilP5caKxYkV/oyEOwzYqiJ+NiGpN
+         8roGPv4hwNaxJwcjSM8G/7u1YSwhho5RIDdPz4B4OrloebTJRZwZv+ackWytbztgVoM/
+         bVL95CE3GOubIoDr8ZMib3p84mxEMjEyCk50SfyninFuznnZkfsYaQsGkorD/ct54xQF
+         iBscDAuRGajqJ6cIh8G0WJHkURc2mj9uZqWCqKzeiLUhV5zvsoW9uXZumoJY9mjnKDR0
+         EyKSl3R3WW90hJ/WtEAWo4wUDT3PSTOLw1BEuBBJHkbzvqfbzOW2/PshWnioQM+lMnCw
+         dtCw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=KFJOKn4N;
+       spf=pass (google.com: domain of desalan.ahrdy08@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=desalan.ahrdy08@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@nbsc.edu.ph
+Return-Path: <desalan.ahrdy08@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id af79cd13be357-7b0a9c04da8sor176944685a.10.2024.10.09.16.45.29
+        for <20231167@nbsc.edu.ph>
+        (Google Transport Security);
+        Wed, 09 Oct 2024 16:45:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of desalan.ahrdy08@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=KFJOKn4N;
+       spf=pass (google.com: domain of desalan.ahrdy08@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=desalan.ahrdy08@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=pass header.i=@nbsc.edu.ph
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1728517529; x=1729122329; darn=nbsc.edu.ph;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=b3pkI0POUbM8hvScs3yZ7oM8N39ICGUajOeRsP8I0kU=;
+        b=KFJOKn4N9qNZaD3WJeF+66bpgKMR0EC2TUT9PJz1pKnPCt7NcEsyUXQzm1D3pjBxCK
+         TxlyVah/Z3jxyO4EYR4CVXJYSeTMhZHRYNAdUz/Rkta2uC+MNZvBEWDIuVwwLsBIexNA
+         m2/o7Yaa1JG26xSQ+wrgK56P98UeRYBmYDRhSazqhvnkiHDPMCVtuYKOx386yY5wp9Oh
+         2tG9lvvD0vsUpY6oBYJK0aV/5Qk9RvhPY9TOgU0wv27e9F+5BB0exD+9WuvSQSZcbv+9
+         bDLC9qSC6XUC/shXDOiRf+diB/Lkodx6vSNkn9Csn9MIChRIJwCfsf/mkgbEGoMe8hrg
+         Hz0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1728517529; x=1729122329;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b3pkI0POUbM8hvScs3yZ7oM8N39ICGUajOeRsP8I0kU=;
+        b=fzh7i8Hr09mwVAOFvoYfwZ22zcxw9ytEzLWX5chbsMH6bJu7oJ+R2uo17yjQcGAElz
+         e8VdQU4xSch9tYxySSScHeaaUWfccJ0VJpyJ7U00vZg6rkaPaJN9++1hGDmInOw24PxH
+         ETxjkSJ1Nzls380kS/VHAinuS9GGJ6EkiddO8VgfXwc+sFKkmEwYhNuZ1f2tZz6zRadQ
+         cWy1V4i780Lh3SBW//fw5wJ2km8z56SN6VVvr9Ib2dCfNlz85svKqkccB282rtCLlpEX
+         v2W+sga6Ulw4i3QPYxIhvmVURx74Scw1tERaqLSlrxtWH0bOYw2ap1L0EipbavYDrXeF
+         2eUQ==
+X-Gm-Message-State: AOJu0YwuMuD6YnrewLmg0Lgibw1eL/UQP4MOPsaswovPErf5J6c8Srsf
+	NCVmmpdzTKyCnb6/Dep8VSrF89FUIEwGF2VEPOic0WPYy5Szm5wD+zbXGmkcd6n4BLD3aTsEMdo
+	Pb5is8fSTHkKLQpb2Y1MAHrAEhwi7CoNRtN0=
+X-Google-Smtp-Source: AGHT+IEFE0/buQoIZFiUmILS9D1qLc2FhJ/5aJ/wzQ2nqd/Y5PyIWiPSPoqgLIYg3wJ/XEOt7xatcDn2ppjKdRdchY0=
+X-Received: by 2002:a05:6214:2267:b0:6c5:da8:9ba8 with SMTP id
+ 6a1803df08f44-6cbe5289fb4mr21251626d6.19.1728517529463; Wed, 09 Oct 2024
+ 16:45:29 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAF1NXY-LHOS=V3nn3od8nkhXwXK+G81qWvQKVOry61f4FGjScw@mail.gmail.com>
+In-Reply-To: <CAF1NXY-LHOS=V3nn3od8nkhXwXK+G81qWvQKVOry61f4FGjScw@mail.gmail.com>
+From: Ahrdy Desalan <desalan.ahrdy08@gmail.com>
+Date: Thu, 10 Oct 2024 07:45:16 +0800
+Message-ID: <CAF1NXY-wY4T7gX1Pxm-GqZFoyoz3XCOPpXn3g9FyhPYPvqOjvQ@mail.gmail.com>
+Subject: Re:
+To: 20231167@nbsc.edu.ph
+Content-Type: multipart/alternative; boundary="00000000000054f590062413d9ed"
+
+--00000000000054f590062413d9ed
+Content-Type: text/plain; charset="UTF-8"
+
+On Thu, Sep 19, 2024, 6:14 AM Ahrdy Desalan <desalan.ahrdy08@gmail.com>
+wrote:
+
+> kaloka
+>
+
+--00000000000054f590062413d9ed
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cla=
+ss=3D"gmail_attr">On Thu, Sep 19, 2024, 6:14 AM Ahrdy Desalan &lt;<a href=
+=3D"mailto:desalan.ahrdy08@gmail.com">desalan.ahrdy08@gmail.com</a>&gt; wro=
+te:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;b=
+order-left:1px #ccc solid;padding-left:1ex"><div dir=3D"ltr">kaloka</div>
+</blockquote></div>
+
+--00000000000054f590062413d9ed--
