@@ -46,23 +46,42 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    
+   
 }
 
 .product {
+  
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    width: 200px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Align content inside card to the center */
+    width: 200px; /* You can adjust the width */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align all card content centrally */
 }
 
 .product img {
-    max-width: 100%;
-    border-radius: 5px;
+   
+    max-width: 100%; /* Ensure image fits within the card */
+  height: auto;
+  object-fit: cover; /* Ensures images are cropped correctly */
+  border-radius: 8px;
+  margin-bottom: 15px; /* Adds space between image and text */
+  display: block; /* Ensure image is treated as a block-level element */
 }
-
+.product image{
+    width: 100%;
+    height: 100%; /* Set a fixed height for the image container */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the image inside the container */
+    overflow: hidden; /* Hide overflowing parts of the image */
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
 button {
     background-color: #28a745;
     color: white;
@@ -87,8 +106,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-p{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: larger;
-}
-
