@@ -8,12 +8,14 @@ body {
 header {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
     font-size: 24px;
-    text-align: center;
 }
 
 nav ul {
@@ -46,7 +48,6 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    
 }
 
 .product {
@@ -87,8 +88,128 @@ footer {
     bottom: 0;
     width: 100%;
 }
-p{
+
+p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: larger;
+}
+
+/* Search bar styles */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align to the left */
+}
+
+.search-input {
+    padding: 0.5rem;
+    font-size: 0.9rem; /* Smaller font size */
+    border: none;
+    border-radius: 4px;
+    width: 150px; /* Smaller width */
+}
+
+.search-button {
+    padding: 0.5rem;
+    font-size: 0.9rem; /* Smaller button */
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #e07a00;
+}
+
+/* Responsive design: adjust layout for smaller screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .search-form {
+        margin-top: 1rem;
+    }
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+    position: relative; /* Ensures the icon can be positioned properly */
+    cursor: pointer;   /* Makes the icon clickable */
+    display: inline-block; /* Keeps it in the line of the header */
+    margin-left: 20px; /* Adds space between the cart and other elements */
+    transition: transform 0.3s ease; /* Adds a smooth scale-up effect on hover */
+}
+
+.cart-image {
+    width: 30px;  /* Adjust the width of the cart icon */
+    height: auto;  /* Maintain aspect ratio */
+    transition: transform 0.3s ease;  /* Smooth scaling effect */
+}
+
+.cart-icon:hover .cart-image {
+    transform: scale(1.1);  /* Slightly enlarge the cart icon when hovered */
+}
+
+.cart-icon:active .cart-image {
+    transform: scale(0.9); /* Slight shrink effect on click */
+}
+
+/* Optional: Add a badge if you want to show cart item count */
+.cart-icon::after {
+    content: "5";  /* Example: 5 items in cart */
+    position: absolute;
+    top: -5px; /* Position the badge above the cart */
+    right: -5px; /* Position the badge to the right of the cart */
+    background-color: #ff0000; /* Red background */
+    color: white;
+    border-radius: 50%;
+    width: 18px; /* Size of the badge */
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0;
+}
+/* Add styles for cart page (cart.html) */
+.cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item button {
+    background-color: #e07a00;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #c76a00;
+}
+
+#cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#checkout-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#checkout-button:hover {
+    background-color: #218838;
 }
 
