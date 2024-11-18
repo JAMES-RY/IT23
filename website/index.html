@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script> <!-- Link to JavaScript file -->
-    <title>Penshoppe Store</title>
+    <title>RRC MERCH</title>
 </head>
 <body>
     <header>
-        <div class="logo">Penshoppe</div>
+        <div class="logo">RRC</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="login.html">Log In</a></li>
+                <li><a href="login.html">Log out</a></li>
             </ul>
         </nav>
+
+       <!-- Cart Logo -->
+<div class="cart-icon">
+    <img src="image/cart.png" alt="Cart" class="cart-image" onclick="window.location.href='cart.html'"> <!-- Cart icon with link -->
+</div>
+
+        
+        <!-- Search Bar -->
+        <form class="search-form" action="#" method="get">
+            <input type="text" class="search-input" placeholder="Search products..." name="search">
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </header>
 
     <main>
-        <h1>Welcome to Penshoppe</h1>
+        <h1>RRC MERCH</h1>
        
         <section class="product-list">
             <article class="product">
@@ -39,13 +51,14 @@
                 <img src="image/pic2.png" alt="Product 3">
                 <h2>Product 3</h2>
                 <p>$30.00</p>
+                <button class="add-to-cart" data-name="Product 3" data-price="30.00">Add to Cart</button>
             </article>
             <!-- Add more products as needed -->
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Penshoppe Store</p>
+        <p>&copy; RRC MERCH</p>
     </footer>
 </body>
 </html>
