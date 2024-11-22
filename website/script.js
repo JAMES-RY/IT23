@@ -2,9 +2,9 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Get cart from loc
 
 // Sample products
 let products = [
-    { name: 'Product 1', price: 20.00, img: 'image/pic.webp' },
-    { name: 'Product 2', price: 25.00, img: 'image/pic.png' },
-    { name: 'Product 3', price: 30.00, img: 'image/pic2.png' }
+    { name: 'RRC SUIT-1', price: 200.00, img: 'image/pic.webp' },
+    { name: 'RRC SUIT-2', price: 250.00, img: 'image/pic.png' },
+    { name: 'RRC SUIT-3', price: 300.00, img: 'image/pic2.png' }
 ];
 
 // Wait for the DOM to fully load

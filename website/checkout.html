@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .checkout-container {
+            width: 60%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .item-name {
+            font-size: 16px;
+            color: #555;
+        }
+        .item-price, .item-quantity {
+            font-size: 16px;
+            color: #333;
+        }
+        .cart-total {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .form-input {
+            margin: 10px 0;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+
+        <div id="checkout-items">
+            <!-- Cart items will be displayed here by JavaScript -->
+        </div>
+
+        <div class="cart-total" id="total">
+            Total: $0.00
+        </div>
+
+        <!-- Checkout Form -->
+        <h3>Billing Information</h3>
+        <form id="checkout-form">
+            <input type="text" id="name" class="form-input" placeholder="Full Name" required />
+            <input type="email" id="email" class="form-input" placeholder="Email Address" required />
+            <input type="text" id="address" class="form-input" placeholder="Shipping Address" required />
+            <input type="text" id="card" class="form-input" placeholder="Credit Card Number" required />
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+    </div>
+
+    <script src="cart.js"></script> <!-- Link to your cart.js file -->
+    <script>
+        // Function to load and display the cart items
+        function displayCheckout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const checkoutItemsContainer = document.getElementById('checkout-items');
+            const totalContainer = document.getElementById('total');
+            checkoutItemsContainer.innerHTML = '';  // Clear existing cart items
+
+            let total = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-price">$${item.price.toFixed(2)}</div>
+                    <div class="item-quantity">x ${item.quantity}</div>
+                `;
+                checkoutItemsContainer.appendChild(cartItem);
+
+                total += item.price * item.quantity;
+            });
+
+            totalContainer.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Function to handle form submission (checkout process)
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const card = document.getElementById('card').value;
+
+            if (!name || !email || !address || !card) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // Here, you could integrate payment gateways (Stripe, PayPal, etc.) for processing real payments
+
+            // Simulate Order Confirmation
+            alert(`Thank you for your purchase, ${name}!\nYour order will be shipped to: ${address}\nConfirmation will be sent to: ${email}`);
+
+            // Optionally, clear cart and redirect
+            localStorage.removeItem('cart');
+            window.location.href = '/thank-you.html'; // Redirect to a thank you page
+        });
+
+        // Initialize the checkout page
+        displayCheckout();
+    </script>
+
+</body>
+</html>

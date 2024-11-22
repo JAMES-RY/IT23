@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Shipped</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .confirmation-container {
+            width: 60%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .order-details {
+            margin-top: 20px;
+        }
+        .item-details {
+            margin-bottom: 10px;
+        }
+        .item-name {
+            font-size: 16px;
+            color: #555;
+        }
+        .item-price {
+            font-size: 16px;
+            color: #333;
+        }
+        .order-total {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confirmation-container">
+        <h2>Thank You for Your Order!</h2>
+
+        <div class="order-details">
+            <h3>Your Order Details:</h3>
+
+            <div id="order-items">
+                <!-- Order items will be displayed here by JavaScript -->
+            </div>
+
+            <div class="order-total" id="order-total">
+                Total: $0.00
+            </div>
+        </div>
+
+        <div class="shipping-info">
+            <h3>Shipping Information:</h3>
+            <p><strong>Address:</strong> <span id="shipping-address"></span></p>
+            <p><strong>Estimated Delivery:</strong> 5-7 Business Days</p>
+        </div>
+
+        <button class="btn" onclick="backToHome()">Back to Home</button>
+    </div>
+
+    <script>
+        // Simulate getting order and shipping details from the local storage or server
+        window.onload = function() {
+            // Get the order details from localStorage (if available)
+            const order = JSON.parse(localStorage.getItem('order')) || {};
+
+            if (!order.items) {
+                alert('No order found.');
+                window.location.href = '/'; // Redirect to home if no order exists
+                return;
+            }
+
+            // Display order items
+            const orderItemsContainer = document.getElementById('order-items');
+            const orderTotalContainer = document.getElementById('order-total');
+            const shippingAddressContainer = document.getElementById('shipping-address');
+
+            let total = 0;
+            order.items.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('item-details');
+                itemElement.innerHTML = `
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-price">$${item.price.toFixed(2)} x ${item.quantity}</div>
+                `;
+                orderItemsContainer.appendChild(itemElement);
+                total += item.price * item.quantity;
+            });
+
+            // Display total
+            orderTotalContainer.textContent = `Total: $${total.toFixed(2)}`;
+
+            // Display shipping address
+            shippingAddressContainer.textContent = order.shippingAddress;
+        };
+
+        // Function to navigate back to the home page
+        function backToHome() {
+            window.location.href = '/';
+        }
+    </script>
+
+</body>
+</html>
